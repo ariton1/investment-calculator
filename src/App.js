@@ -1,4 +1,5 @@
-import logo from './assets/investment-calculator-logo.png';
+import React from "react";
+import Header from "./Header/Header";
 
 function App() {
   const calculateHandler = (userInput) => {
@@ -7,10 +8,10 @@ function App() {
 
     const yearlyData = []; // per-year results
 
-    let currentSavings = +userInput['current-savings']; // feel free to change the shape of this input object!
-    const yearlyContribution = +userInput['yearly-contribution']; // as mentioned: feel free to change the shape...
-    const expectedReturn = +userInput['expected-return'] / 100;
-    const duration = +userInput['duration'];
+    let currentSavings = +userInput["current-savings"]; // feel free to change the shape of this input object!
+    const yearlyContribution = +userInput["yearly-contribution"]; // as mentioned: feel free to change the shape...
+    const expectedReturn = +userInput["expected-return"] / 100;
+    const duration = +userInput["duration"];
 
     // The below code calculates yearly results (total savings, interest etc)
     for (let i = 0; i < duration; i++) {
@@ -30,11 +31,7 @@ function App() {
 
   return (
     <div>
-      <header className="header">
-        <img src={logo} alt="logo" />
-        <h1>Investment Calculator</h1>
-      </header>
-
+      <Header />
       <form className="form">
         <div className="input-group">
           <p>
@@ -48,9 +45,7 @@ function App() {
         </div>
         <div className="input-group">
           <p>
-            <label htmlFor="expected-return">
-              Expected Interest (%, per year)
-            </label>
+            <label htmlFor="expected-return">Expected Interest (%, per year)</label>
             <input type="number" id="expected-return" />
           </p>
           <p>
@@ -67,10 +62,8 @@ function App() {
           </button>
         </p>
       </form>
-
       {/* Todo: Show below table conditionally (only once result data is available) */}
       {/* Show fallback text if no data is available */}
-
       <table className="result">
         <thead>
           <tr>
